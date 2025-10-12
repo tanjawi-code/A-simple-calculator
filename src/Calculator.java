@@ -103,49 +103,11 @@ public class Calculator implements ActionListener {
           String value = button.getText();
 
         if(Arrays.asList(symbols).contains(value)) {
-            if(displayLabel.getText().isEmpty()){
-
-            }
-            else if ("%/*-+".contains(value)) {
-                switch (value){
-                    case "+" :
-                        number1 = Double.parseDouble(displayLabel.getText());
-                        operator = "+";
-                        displayLabel.setText("");
-                        break;
-                    case "-" :
-                        number1 = Double.parseDouble(displayLabel.getText());
-                        operator = "-";
-                        displayLabel.setText("");
-                        break;
-                    case "*" :
-                        number1 = Double.parseDouble(displayLabel.getText());
-                        operator = "*";
-                        displayLabel.setText("");
-                        break;
-                    case "/" :
-                        number1 = Double.parseDouble(displayLabel.getText());
-                        operator = "/";
-                        displayLabel.setText("");
-                        break;
-                    case "%" :
-                        number1 = Double.parseDouble(displayLabel.getText());
-                        operator = "%";
-                        displayLabel.setText("");
-                        break;
-                    default:
-                }
+            if ("%/*-+".contains(value)) {
+                selectOperator(value);
             }
             else if(value.equals("=")){
-                number2 = Double.parseDouble(displayLabel.getText());
-                switch (operator){
-                    case "+" : result = number1+number2; break;
-                    case "-" : result = number1-number2; break;
-                    case "*" : result = number1*number2; break;
-                    case "/" : result = number1/number2; break;
-                    case "%" : result = number1%number2; break;
-                 }
-                displayLabel.setText(String.valueOf(result));
+                calculate();
             }
             else{
                 JOptionPane.showMessageDialog(null,"It's coming later","Message",
@@ -153,29 +115,85 @@ public class Calculator implements ActionListener {
             }
         }
         else if(Arrays.asList(clearValue).contains(value)){
-            if(value.equals("C")){
-                displayLabel.setText("0");
-            }
-            else{
-                String text = displayLabel.getText();
-                if(!text.isEmpty()){
-                    displayLabel.setText(text.substring(0,text.length()-1));
-                }
-            }
+            clear(value);
         }
         else {
-            if(value.equals(".")){
-                if(!displayLabel.getText().contains(".")){
-                    displayLabel.setText(displayLabel.getText()+value);
-                }
+            checkOutput(value);
+        }
+    }
+
+    // This is for selecting operators.
+    private void selectOperator(String value){
+        switch (value){
+            case "+" :
+                number1 = Double.parseDouble(displayLabel.getText());
+                operator = "+";
+                displayLabel.setText("");
+                break;
+            case "-" :
+                number1 = Double.parseDouble(displayLabel.getText());
+                operator = "-";
+                displayLabel.setText("");
+                break;
+            case "*" :
+                number1 = Double.parseDouble(displayLabel.getText());
+                operator = "*";
+                displayLabel.setText("");
+                break;
+            case "/" :
+                number1 = Double.parseDouble(displayLabel.getText());
+                operator = "/";
+                displayLabel.setText("");
+                break;
+            case "%" :
+                number1 = Double.parseDouble(displayLabel.getText());
+                operator = "%";
+                displayLabel.setText("");
+                break;
+            default:
+        }
+    }
+
+    // This is for calculating.
+    private void calculate(){
+        number2 = Double.parseDouble(displayLabel.getText());
+        switch (operator){
+            case "+" : result = number1+number2; break;
+            case "-" : result = number1-number2; break;
+            case "*" : result = number1*number2; break;
+            case "/" : result = number1/number2; break;
+            case "%" : result = number1%number2; break;
+        }
+        String text = String.valueOf(result);
+        displayLabel.setText(text.substring(0,text.length()-2));
+    }
+
+    // This is for clearing symbols.
+    private void clear(String value){
+        if(value.equals("C")){
+            displayLabel.setText("0");
+        }
+        else{
+            String text = displayLabel.getText();
+            if(!text.isEmpty()){
+                displayLabel.setText(text.substring(0,text.length()-1));
             }
-            else if("0123456789".contains(value)){
-                if(displayLabel.getText().equals("0")){
-                    displayLabel.setText(value);
-                }
-                else{
-                    displayLabel.setText(displayLabel.getText()+value);
-                }
+        }
+    }
+
+    // This is for checking the label(output).
+    private void checkOutput(String value){
+        if(value.equals(".")){
+            if(!displayLabel.getText().contains(".")){
+                displayLabel.setText(displayLabel.getText()+value);
+            }
+        }
+        else if("0123456789".contains(value)){
+            if(displayLabel.getText().equals("0")){
+                displayLabel.setText(value);
+            }
+            else{
+                displayLabel.setText(displayLabel.getText()+value);
             }
         }
     }
