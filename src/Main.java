@@ -1,13 +1,30 @@
-import javax.swing.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+
 import java.awt.*;
-import java.util.Scanner;
+import java.util.Objects;
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+public class Main extends Application {
+    static void main(String[] args) {
+        launch(args);
+    }
 
-        new Calculator();
+    @Override
+    public void start(Stage stage) throws Exception {
+        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/calcuator.png")));
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/sceneCalculator.fxml")));
 
-        input.close();
+        Scene scene = new Scene(parent);
+        String css = Objects.requireNonNull(this.getClass().getResource("/style.css")).toExternalForm();
+        scene.getStylesheets().add(css);
+
+        stage.setScene(scene);
+        stage.setTitle("Calculator");
+        stage.getIcons().add(image);
+        stage.show();
     }
 }

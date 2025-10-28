@@ -1,0 +1,83 @@
+#label{
+-fx-text-fill: "white";
+-fx-background-color: rgb(32,33,36)
+}
+#clearButton{
+-fx-text-fill: "red";
+-fx-background-color: rgb(55,53,54)
+}
+#removeButton{
+-fx-background-color: "green";
+}
+#historyButton{
+-fx-text-fill: "green";
+-fx-background-color: rgb(55,53,54)
+}
+#decimalButton{
+-fx-text-fill: "green";
+-fx-background-color: rgb(55,53,54)
+}
+#zeroButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#oneButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#twoButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#threeButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#fourButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#fiveButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#sixButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#sevenButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#eightButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#nineButton{
+-fx-text-fill: "white";
+-fx-background-color: rgb(55,53,54)
+}
+#addButton{
+-fx-text-fill: "green";
+-fx-background-color: rgb(55,53,54)
+}
+#subButton{
+-fx-text-fill: "green";
+-fx-background-color: rgb(55,53,54)
+}
+#multiButton{
+-fx-text-fill: "green";
+-fx-background-color: rgb(55,53,54)
+}
+#divisionButton{
+-fx-text-fill: "green";
+-fx-background-color: rgb(55,53,54)
+}
+#percentButton{
+-fx-text-fill: "green";
+-fx-background-color: rgb(55,53,54)
+}
+#equalButton{
+-fx-text-fill: "white";
+-fx-background-color: "green"
+}
