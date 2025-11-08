@@ -51,48 +51,56 @@ public class Calculating {
 
     // This is for selecting operators.
     private void selectOperator(String value) {
-        switch (value) {
-            case "+":
-                firstNumber = Double.parseDouble(label.getText());
-                operator = "+";
-                label.setText("");
-                break;
-            case "-":
-                firstNumber = Double.parseDouble(label.getText());
-                operator = "-";
-                label.setText("");
-                break;
-            case "*":
-                firstNumber = Double.parseDouble(label.getText());
-                operator = "*";
-                label.setText("");
-                break;
-            case "/":
-                firstNumber = Double.parseDouble(label.getText());
-                operator = "/";
-                label.setText("");
-                break;
-            case "%":
-                firstNumber = Double.parseDouble(label.getText());
-                operator = "%";
-                label.setText("");
-                break;
-            default:
+        if (!label.getText().isEmpty()) {
+            switch (value) {
+                case "+":
+                    firstNumber = Double.parseDouble(label.getText());
+                    operator = "+";
+                    label.setText("");
+                    break;
+                case "-":
+                    firstNumber = Double.parseDouble(label.getText());
+                    operator = "-";
+                    label.setText("");
+                    break;
+                case "*":
+                    firstNumber = Double.parseDouble(label.getText());
+                    operator = "*";
+                    label.setText("");
+                    break;
+                case "/":
+                    firstNumber = Double.parseDouble(label.getText());
+                    operator = "/";
+                    label.setText("");
+                    break;
+                case "%":
+                    firstNumber = Double.parseDouble(label.getText());
+                    operator = "%";
+                    label.setText("");
+                    break;
+                default:
+            }
         }
     }
 
     // This is for calculating.
     private void calculate(){
-        secondNumber = Double.parseDouble(label.getText());
-        switch (operator){
-            case "+" : result = firstNumber+secondNumber; break;
-            case "-" : result = firstNumber-secondNumber; break;
-            case "*" : result = firstNumber*secondNumber; break;
-            case "/" : result = firstNumber/secondNumber; break;
-            case "%" : result = firstNumber%secondNumber; break;
+        if (operator != null){
+            if (!label.getText().isEmpty()){
+                secondNumber = Double.parseDouble(label.getText());
+                switch (operator) {
+                    case "+" : result = firstNumber+secondNumber; break;
+                    case "-" : result = firstNumber-secondNumber; break;
+                    case "*" : result = firstNumber*secondNumber; break;
+                    case "/" : result = firstNumber/secondNumber; break;
+                    case "%" : result = firstNumber%secondNumber; break;
+                }
+                String text = String.valueOf(result);
+                label.setText(text.substring(0,text.length()-2));
+                firstNumber = 0;
+                secondNumber = 0;
+            }
         }
-        String text = String.valueOf(result);
-        label.setText(text.substring(0,text.length()-2));
     }
 
     // This is for clearing symbols.
@@ -116,9 +124,14 @@ public class Calculating {
 
     // This is for printing numbers.
     private void checkOutput(String value){
-        if(value.equals(".")){
-            if(!label.getText().contains(".")){
-                label.setText(label.getText()+value);
+        if(value.equals(".")) {
+            if (!label.getText().isEmpty()) {
+                if(!label.getText().contains(".")){
+                    label.setText(label.getText()+value);
+                }
+            }
+            else {
+                label.setText("0.");
             }
         }
         else if("0123456789".contains(value)){

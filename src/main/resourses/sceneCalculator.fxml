@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Calculating">
    <children>
-      <GridPane layoutY="103.0" prefHeight="437.0" prefWidth="360.0">
+      <GridPane gridLinesVisible="true" layoutY="103.0" prefHeight="437.0" prefWidth="360.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
