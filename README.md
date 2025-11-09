@@ -27,4 +27,4 @@
 
 ### About me
 - Github : [https://github.com/tanjawi-code].
-- Version : 1.0.0
+- Version : 1.0.1
