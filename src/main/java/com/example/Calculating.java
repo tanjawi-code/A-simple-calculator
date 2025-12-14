@@ -10,17 +10,13 @@ import java.util.Arrays;
 public class Calculating {
 
     // For operators.
-    @FXML
-    private Button addButton, subButton, divisionButton, multiButton, percentButton, equalButton;
+    @FXML private Button addButton, subButton, divisionButton, multiButton, percentButton, equalButton;
     // For numbers.
-    @FXML
-    private Button zeroButton, oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton;
+    @FXML private Button zeroButton, oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton;
     // For options.
-    @FXML
-    private Button clearButton, removeButton, historyButton, decimalButton;
+    @FXML private Button clearButton, removeButton, historyButton, decimalButton;
     // For output.
-    @FXML
-    private Label label;
+    @FXML private Label label;
 
     String[] numbers = {"0","1","2","3","4","5","6","7","8","9","."};
     String[] operators = {"+","-","*","/","%","="};
@@ -30,6 +26,7 @@ public class Calculating {
     String operator = null;
     double result;
 
+    @FXML
     public void check(ActionEvent event){
         Button button = (Button) event.getSource();
         String value = button.getText();
